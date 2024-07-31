@@ -34,7 +34,7 @@ const Navbar = () => {
           <Link to="/about" className="link" onClick={toggleMenu}>
             About
           </Link>
-          <li><a href="dhms-bay.vercel.app">Go to Dashboard</a></li>
+          <li><a href="https://dhms-bay.vercel.app/">Go to Dashboard</a></li>
         </div>
       </div>
       <div className="hamburger" onClick={toggleMenu}>
