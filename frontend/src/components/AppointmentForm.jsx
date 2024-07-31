@@ -128,7 +128,7 @@ const AppointmentForm = () => {
         <div>
           <input
             type="text"
-            placeholder="NIC"
+            placeholder="ID number"
             value={nic}
             onChange={(e) => setNic(e.target.value)}
           />

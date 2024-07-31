@@ -138,7 +138,7 @@ const AddNewDoctor = () => {
               />
               <input
                 type="number"
-                placeholder="NIC"
+                placeholder="ID number"
                 value={nic}
                 onChange={(e) => setNic(e.target.value)}
                 className="input-field"
