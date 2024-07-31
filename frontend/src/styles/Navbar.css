@@ -1,0 +1,135 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #add8e6; /* Light blue background color */
+  max-width: 1200px; /* Set maximum width */
+  margin: 0 auto; /* Center the navbar */
+  position: relative;
+}
+
+.logo {
+  flex: 1;
+}
+
+.logo-img {
+  width: 120px; /* Adjust size as needed */
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  flex: 2;
+  justify-content: flex-end;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.links {
+  display: flex;
+  gap: 15px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #000; /* Dark text color for contrast */
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.links a:hover {
+  color: #555; /* Slightly darker color on hover */
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 8px 20px;
+  color: #fff;
+  background-color: #007BFF; /* Blue color for buttons */
+  border-radius: 20px;
+  font-size: 14px; /* Adjust font size */
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: none; /* Remove any default border */
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.loginBtn {
+  background-color: #007bff;
+}
+
+.registerBtn {
+  background-color: #6c757d;
+}
+
+.logoutBtn {
+  background-color: #dc3545;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navLinks {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #add8e6;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 20px;
+    border-top: 1px solid #add8e6; /* Ensure no white line at the top */
+  }
+
+  .navLinks.open {
+    max-height: 300px; /* Adjust based on content size */
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
