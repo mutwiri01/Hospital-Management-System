@@ -57,32 +57,40 @@ const AddNewDoctor = () => {
       formData.append("gender", gender);
       formData.append("doctorDepartment", doctorDepartment);
       formData.append("docAvatar", docAvatar);
-      await axios
-        .post("https://apihms.vercel.app/api/v1/user/doctor/addnew", formData, {
+
+      const res = await axios.post(
+        "https://apihms.vercel.app/api/v1/user/doctor/addnew",
+        formData,
+        {
           withCredentials: true,
           headers: { "Content-Type": "multipart/form-data" },
-        })
-        .then((res) => {
-          toast.success(res.data.message);
-          setIsAuthenticated(true);
-          navigateTo("/");
-          setFirstName("");
-          setLastName("");
-          setEmail("");
-          setPhone("");
-          setNic("");
-          setDob("");
-          setGender("");
-          setPassword("");
-        });
+        }
+      );
+
+      toast.success(res.data.message);
+      setIsAuthenticated(true);
+      navigateTo("/");
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setNic("");
+      setDob("");
+      setGender("");
+      setPassword("");
     } catch (error) {
-      toast.error(error.response.data.message);
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error("An error occurred. Please try again.");
+      }
     }
   };
 
   if (!isAuthenticated) {
     return <Navigate to={"/login"} />;
   }
+
   return (
     <section className="page">
       <section className="container add-doctor-form">
@@ -91,9 +99,7 @@ const AddNewDoctor = () => {
           <div className="first-wrapper">
             <div className="avatar">
               <img
-                src={
-                  docAvatarPreview ? `${docAvatarPreview}` : "/doc.png"
-                }
+                src={docAvatarPreview ? docAvatarPreview : "/doc.png"}
                 alt="Doctor Avatar"
                 className="avatar-img"
               />
@@ -168,19 +174,15 @@ const AddNewDoctor = () => {
               />
               <select
                 value={doctorDepartment}
-                onChange={(e) => {
-                  setDoctorDepartment(e.target.value);
-                }}
+                onChange={(e) => setDoctorDepartment(e.target.value)}
                 className="input-field"
               >
                 <option value="">Select Department</option>
-                {departmentsArray.map((depart, index) => {
-                  return (
-                    <option value={depart} key={index}>
-                      {depart}
-                    </option>
-                  );
-                })}
+                {departmentsArray.map((depart, index) => (
+                  <option value={depart} key={index}>
+                    {depart}
+                  </option>
+                ))}
               </select>
               <button type="submit" className="submit-btn">
                 Register New Doctor
