@@ -114,7 +114,7 @@ const Sidebar = () => {
             <RiLogoutBoxFill />
             <span>Logout</span>
           </div>
-          <li><a href="http://localhost:5173/">Go to Main Frontend</a></li>
+          <li><a href="https://hospital-management-system-blush-seven.vercel.app/">Go to Main Frontend</a></li>
         </div>
       </nav>
       <div

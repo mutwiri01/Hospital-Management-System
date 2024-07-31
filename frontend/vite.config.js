@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:5174', // proxy API calls to the dashboard
+      '/api': 'https://hospital-management-system-blush-seven.vercel.app', // proxy API calls to the dashboard
     },
   },
 })
