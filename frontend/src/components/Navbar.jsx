@@ -34,22 +34,7 @@ const Navbar = () => {
           <Link to="/about" className="link" onClick={toggleMenu}>
             About
           </Link>
-        </div>
-        <div className="buttons">
-          {isAuthenticated ? (
-            <button onClick={() => {handleLogout(); toggleMenu();}} className="logoutBtn btn">
-              Logout
-            </button>
-          ) : (
-            <>
-              <Link to="/login" className="loginBtn btn" onClick={toggleMenu}>
-                Login
-              </Link>
-              <Link to="/register" className="registerBtn btn" onClick={toggleMenu}>
-                Register
-              </Link>
-            </>
-          )}
+          <li><a href="http://localhost:5174/">Go to Dashboard</a></li>
         </div>
       </div>
       <div className="hamburger" onClick={toggleMenu}>

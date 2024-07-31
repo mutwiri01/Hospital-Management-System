@@ -85,9 +85,6 @@ const Dashboard = () => {
                 <th>Patient</th>
                 <th>Date</th>
                 <th>Doctor</th>
-                <th>Department</th>
-                <th>Status</th>
-                <th>Visited</th>
               </tr>
             </thead>
             <tbody>
@@ -97,33 +94,6 @@ const Dashboard = () => {
                       <td>{`${appointment.firstName} ${appointment.lastName}`}</td>
                       <td>{appointment.appointment_date.substring(0, 16)}</td>
                       <td>{`${appointment.doctor.firstName} ${appointment.doctor.lastName}`}</td>
-                      <td>{appointment.doctor.department}</td>
-                      <td>
-                        {appointment.status === "pending" ? (
-                          <>
-                            <button
-                              onClick={() =>
-                                handleUpdateStatus(
-                                  appointment._id,
-                                  "approved"
-                                )
-                              }
-                            >
-                              <GoCheckCircleFill />
-                            </button>
-                            <button
-                              onClick={() =>
-                                handleUpdateStatus(appointment._id, "rejected")
-                              }
-                            >
-                              <AiFillCloseCircle />
-                            </button>
-                          </>
-                        ) : (
-                          appointment.status
-                        )}
-                      </td>
-                      <td>{appointment.visited ? "Yes" : "No"}</td>
                     </tr>
                   ))
                 : null}
