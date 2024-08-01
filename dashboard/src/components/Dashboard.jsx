@@ -14,7 +14,7 @@ const Dashboard = () => {
     const fetchAppointments = async () => {
       try {
         const { data } = await axios.get(
-          "https://dhms-bay.vercel.app//api/v1/appointment/getall",
+          "https://dhms-bay.vercel.app/api/v1/appointment/getall",
           { withCredentials: true }
         );
         setAppointments(data.appointments);
